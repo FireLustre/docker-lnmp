@@ -29,9 +29,9 @@ services:
         volumes:
             - ./data/db:/var/lib/mysql
         environment:
-            MYSQL_ROOT_PASSWORD: WHlyd666
-            MYSQL_USER: lustre
-            MYSQL_PASSWORD: 64648412qwE
+            MYSQL_ROOT_PASSWORD: 123456
+           #MYSQL_USER: user1
+           #MYSQL_PASSWORD: user1
         ports:
             - "3307:3306"
    
