@@ -7,6 +7,8 @@ services:
             - ./www/:/var/www/html/:rw
         ports:
             - "9009:9000"
+        links:
+            - mysql
         restart: always
 
     ### Nginx
