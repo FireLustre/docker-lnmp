@@ -1,4 +1,6 @@
 version: '2'
+networks:
+    lnmp:
 services:
     ### PHP-FPM ###
     php7:
@@ -10,7 +12,8 @@ services:
         links:
             - mysql
             - redis
-        restart: always
+        networks:
+            - lnmp
 
     ### Nginx
     nginx:
@@ -25,6 +28,8 @@ services:
             - "444:443"
         links:
             - php7
+        networks:
+            - lnmp
 
     ### Mysql
     mysql:
@@ -37,7 +42,9 @@ services:
            #MYSQL_PASSWORD: user1
         ports:
             - "3307:3306"
-   
+        networks:
+           - lnmp
+
     ### Redis
     redis:
         build: redis
@@ -45,3 +52,6 @@ services:
              - ./data/cache:/data
         ports:
             - "6380:6379"
+        networks:
+            - lnmp
+
