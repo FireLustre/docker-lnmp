@@ -14,6 +14,17 @@ services:
             - redis
         networks:
             - lnmp
+    php56:
+        build: php56
+        volumes:
+            - ./www/:/var/www/html/:rw
+        ports:
+            - "9008:9000"
+        depends_on:
+            - mysql
+            - redis
+        networks:
+            - lnmp
 
     ### Nginx
     nginx:
