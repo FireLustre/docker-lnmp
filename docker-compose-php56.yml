@@ -3,17 +3,6 @@ networks:
     lnmp:
 services:
     ### PHP-FPM ###
-    php7:
-        build: php7
-        volumes:
-            - ./www/:/var/www/html/:rw
-        ports:
-            - "9009:9000"
-        links:
-            - mysql
-            - redis
-        networks:
-            - lnmp
     php56:
         build: php56
         volumes:
@@ -38,7 +27,7 @@ services:
             - "81:80"
             - "444:443"
         links:
-            - php7
+            - php56
         networks:
             - lnmp
 
